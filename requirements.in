@@ -1,2 +1,6 @@
 slackclient
+requests
+django
+djangorestframework
 python-dotenv
+gunicorn
