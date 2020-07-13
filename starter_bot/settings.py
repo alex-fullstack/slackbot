@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 from dotenv import load_dotenv
+import dj_database_url
+
 
 load_dotenv()
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -84,12 +86,16 @@ WSGI_APPLICATION = 'starter_bot.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'mydb',
+        'USER': 'myuser',
+        'PASSWORD': 'password',
+        'HOST': '',
+        'PORT': '',
     }
 }
 
-
+DATABASES['default'] = dj_database_url.config()
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
 
